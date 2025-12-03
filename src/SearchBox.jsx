@@ -38,10 +38,12 @@ export default function SearchBox({updateInfo}){
     let handleSubmit=async(evt)=>{
         try{
             evt.preventDefault();
-        console.log(city)
-        setCity("");
-        let newInfo=await getWeatherInfo();
-        updateInfo(newInfo)
+            setError(false);
+            console.log(city)
+          
+            let newInfo=await getWeatherInfo();
+            updateInfo(newInfo)
+            setCity("");
         }
         catch(err){
             setError(true);
